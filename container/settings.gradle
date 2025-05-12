@@ -1,4 +1,4 @@
 
-include ':lib', ':app'
+//include ':lib', ':app'
 //, ':libsandhook'
-//include ':containerlib', ':container'
+include ':containerlib', ':container'
