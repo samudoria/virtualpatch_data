@@ -14,8 +14,23 @@ parser.add_argument("output")
 
 args = parser.parse_args()
 
-apks = [f for f in os.listdir(args.input) if path.isfile(f"{args.input}/{f}") and f.endswith(".apk")]
+apks = [
+    f
+    for f in os.listdir(args.input)
+    if path.isfile(f"{args.input}/{f}") and f.endswith(".apk")
+]
 
 for apk in tqdm(apks):
-    subprocess.run(["python", f"{DIR}/generate.py", f"{args.input}/{apk}", "-o", f"{args.output}/{apk}", "-i", f"{DIR}/../container"], stdout=DEVNULL, stderr=STDOUT)
-
+    subprocess.run(
+        [
+            "python",
+            f"{DIR}/generate.py",
+            f"{args.input}/{apk}",
+            "-o",
+            f"{args.output}/{apk}",
+            "-i",
+            f"{DIR}/../VirtualApp",
+        ],
+        stdout=DEVNULL,
+        stderr=STDOUT,
+    )
